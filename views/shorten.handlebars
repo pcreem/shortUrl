@@ -1,0 +1,30 @@
+<form class="form-signin" style="width: 100%;">
+  <div class="text-center mb-4">
+    <h1 class="h3 mb-3 font-weight-normal">Url Shortener</h1>
+  </div>
+
+  <div class="form-label-group">
+    <input class="form-control" value={{shorten}} id="myInput">
+  </div>
+  <br />
+
+  <button class="btn btn-lg btn-primary btn-block" onclick="myFunction()">Copy</button>
+  <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
+</form>
+
+<script>
+  function myFunction() {
+    /* Get the text field */
+    var copyText = document.getElementById("myInput");
+
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+
+    /* Alert the copied text */
+    alert("Copied the text: " + copyText.value);
+  }
+</script>
