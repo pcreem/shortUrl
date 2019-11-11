@@ -3,8 +3,8 @@ const db = require('../models')
 const Url = db.Url
 
 const userController = {
-  signupPage: (req, res) => {
-    return res.render('signup')
+  urlPage: (req, res) => {
+    return res.render('url')
   },
 
 
@@ -14,7 +14,7 @@ const userController = {
     Url.findOne({ where: { shorten: shorten } }).then(short => {
       if (short) {
         req.flash('error_messages', 'Shorten Url redondant！')
-        return res.redirect('signup')
+        return res.redirect('url')
       } else {
         Url.create({
           origin: req.body.origin,
@@ -33,7 +33,7 @@ const userController = {
         return res.redirect(short.origin)
       } else {
         req.flash('error_messages', "Shorten Url doesn't exist！")
-        return res.redirect('signup')
+        return res.redirect('url')
       }
     })
   }
